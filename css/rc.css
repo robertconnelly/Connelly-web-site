@@ -1,0 +1,30 @@
+.navrow {
+  background-color: #FFFBBE;
+}
+
+.navcol {
+  background-color: #FFFBBE;
+  text-align: center;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.navcol.navselect {
+  background-color: #E7E292;
+}
+
+
+.navlink {
+  text-decoration: none;
+  color: #222;
+}
+
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height:normal;
+}
+
+
