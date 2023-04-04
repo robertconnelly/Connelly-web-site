@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>Robert Connelly</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/rc.css">
+
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+
+  <link href="css/jquery-ui.min.css" rel="stylesheet">
+
+
+  <style type='text/css'>
+      select.btn-mini {
+          height: auto;
+          line-height: 14px;
+      }
+      select.btn {
+          -webkit-appearance: button;
+          -moz-appearance: button;
+          appearance: button;
+          padding-right: 16px;
+      }
+      select.btn-mini + .caret {
+          margin-left: -20px;
+          margin-top: 9px;
+      }
+  </style>
+
+
+</head>
+<body>
+
+  <!-- download box for screenshot -->
+  <iframe id="dlfile_iframe" style="display:none;"></iframe>
+
+
+  <!-- options menu -->
+  <!-- <div class="rc-modal fade" id="configModal" tabindex="-1" role="dialog"
+      aria-labelledby="configModalLabel" aria-hidden="true"> -->
+  <div class="rc-modal" id="configModal" tabindex="-1" >
+       <!-- <div class="rc-modal-content" role="document"> -->
+      <div class="rc-modal-content">
+
+        <div class="rc-modal-header">
+          <h5 class="modal-title" id="configModalLabel">Options</h5>
+          <button type="button" class="rc-close" id='ui_btn_config_modal_x' onclick='ui_config_modal_close()' >
+            <!-- style="background-image: url('images/close-outline.svg'); background-repeat:no-repeat;" > -->
+            <!--
+            <div>
+              <img style='width:100%;' src='images/close-outline.svg'></img>
+            </div>
+            -->
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class='row'>
+            <div class='two columns'> Background </div>
+            <div class='one columns0'><input class='form-control' type='text' id='background_color_id'></div>
+          </div>
+
+          <div class='row'><hr /></div>
+          <div class='row'>
+            <div class='two columns'> C1 color </div>
+            <div class='one columns0'><input class='form-control' type='text' id='c1_color_id'></div>
+          </div>
+          <div class='row'><hr /></div>
+          <div class='row'>
+            <div class='two columns'> C2 color </div>
+            <div class='one columns0'><input class='form-control' type='text' id='c2_color_id'></div>
+          </div>
+          <div class='row'><hr /></div>
+          <div class='row'>
+            <div class='two columns'> S1 color </div>
+            <div class='one columns0'><input class='form-control' type='text' id='s1_color_id'></div>
+          </div>
+          <div class='row'><hr /></div>
+
+          <div class='row'>
+            <div class='two columns'> C1 Thickness </div>
+            <div class='two columns' id="c1_thickness_slider_val_id"> val </div>
+            <div class='eight columns'><div id='c1_thickness_slider_id'></div></div>
+          </div>
+          <div class='row'><hr /></div>
+          <div class='row'>
+            <div class='two columns'> C2 Thickness </div>
+            <div class='two columns' id="c2_thickness_slider_val_id"> val </div>
+            <div class='eight columns'><div id='c2_thickness_slider_id'></div></div>
+          </div>
+          <div class='row'><hr /></div>
+          <div class='row'>
+            <div class='two columns'> S1 Thickness </div>
+            <div class='two columns' id="s1_thickness_slider_val_id"> val </div>
+            <div class='eight columns'><div id='s1_thickness_slider_id'></div></div>
+          </div>
+          <div class='row'><hr /></div>
+          <div class='row'>
+            <div class='two columns'> Vertex Radius </div>
+            <div class='two columns' id="vertex_radius_slider_val_id"> val </div>
+            <div class='eight columns'><div id='vertex_radius_slider_id'></div></div>
+          </div>
+          <div class='row'><hr /></div>
+          <div class='row'>
+            <div class='one columns'></div>
+            <div class='four columns'>
+              <button type="button" class="btn btn-secondary" onclick='restore_defaults();'>
+                Restore Defaults
+              </button>
+            </div>
+            <div class='three columns'></div>
+            <div class='two columns'>
+              <button type="button" class="btn btn-primary" id='ui_btn_config_modal_close' onclick='ui_config_modal_close()' >
+                Close
+              </button>
+            </div>
+            <div class='one columns'></div>
+          </div>
+        </div>
+
+      </div>
+      <!-- </div> -->
+  </div>
+
+  <!-- ***************** -->
+  <!-- ***************** -->
+
+
+  <div class='container'>
+
+    <p></p>
+
+    <h1>Robert Connelly</h1>
+
+
+    <div class='row navrow'>
+      <div class='two columns navcol '> <span><a href='index.html' class='navlink'>Home</a></span> </div>
+      <div class='two columns navcol'> <span><a href='publications.html' class='navlink'>Publications</a></span> </div>
+      <div class='two columns navcol navselect'> <span><a href='application.html' class='navlink'>Applications</a></span> </div>
+      <div class='two columns navcol'> <span><a href='teaching.html' class='navlink'>Teaching</a></span> </div>
+      <div class='two columns navcol'> <span><a href='activities.html' class='navlink'>Activities</a></span> </div>
+      <div class='two columns navcol'> <span><a href='students.html' class='navlink'>Grad Students</a> </span> </div>
+    </div>
+
+    <hr>
+
+    <div class='row'>
+
+      <div class='one columns'> &nbsp; </div>
+
+      <div class='ten columns'>
+
+        <!-- ************************** -->
+        <!-- ************************** -->
+        <!-- ************************** -->
+        <!-- ************************** -->
+
+
+        <!-- Program -->
+        <!-- <div class="tab-pane fade show active" id="program" role="tabpanel" aria-labelledby="program-tab"> -->
+
+          <div class='row'>
+            <div class='ten columns'>
+              <h3>Highly Symmetric Tensegrity Structures</h3>
+            </div>
+            <div class='two columns'>
+              <button type='button' class='btn btn-light rc-options' id='ui_btn_modal_config'>
+              </button>
+            </div>
+          </div>
+          <hr />
+
+          <!-- <div class='container'> -->
+            <div class='row'>
+
+              <div id='canvas_div' class='eight columns'>
+
+                <canvas id='canvas_id' width="400" height="400"></canvas>
+                <p>
+                <div class='row' style='width:100%;'>
+
+                  <div class='one columns'> &nbsp; </div>
+
+                  <div class='two columns'>
+                    <div id='ui_camera' class='rc-camera' onclick='take_screenshot();'  >
+                    </div>
+                    <!--
+                    <span class='badge badge-secondary' onClick='take_screenshot()' style='float:left;'>
+                      <span data-feather='camera'></span>
+                    </span>
+                    -->
+                  </div>
+
+                  <div class='two columns'> &nbsp; </div>
+                  <div class='two columns'> &nbsp; </div>
+                  <div class='two columns'>
+
+                    <div id='ui_fullscreen' class='rc-fullscreen' onclick='go_fullscreen();'  >
+                    </div>
+                    <!--
+                    <span class='badge badge-secondary' onClick='go_fullscreen()' style='float:left;'>
+                      <span data-feather='maximize-2'></span>
+                    </span>
+                    -->
+
+                  </div>
+
+                  <div class='three columns'> &nbsp; </div>
+
+                </div>
+                </p>
+              </div>
+
+              <div id='inputarea' class='four columns'>
+                <div class='twelve columns'>
+                  <div class='row'>
+                    <div class='three columns'>group</div>
+                    <div class='nine columns'>
+                      <select id='group_select' class='custom-select' onchange='change_group_select();'>
+                        <option selected>A4</option>
+                        <option >A4Z2</option>
+                        <option >S4</option>
+                        <option >S4Z2</option>
+                        <option >A5</option>
+                        <option >A5Z2</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class='twelve columns'>
+                  <div class='row'>
+                    <div class='three columns'>cables</div>
+                    <div class='nine columns'>
+                      <select id='cable_select' class='custom-select' onchange='change_cable_select();'>
+                        <option selected>...</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class='twelve columns'>
+                  <div class='row'>
+                    <div class='three columns'>struts</div>
+                    <div class='nine columns'>
+                      <select id='strut_select' class='custom-select' onchange='change_strut_select();'>
+                        <option selected>...</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <br />
+
+                <div class='twelve columns'>
+
+                  <div id='detgraph'></div>
+
+                  <div class='row'>
+                    <div class='six columns'> C1 Length: </div>
+                    <div class='six columns' id="c1_length"></div>
+                  </div>
+                  <div class='row'>
+                    <div class='six columns'> C2 Length: </div>
+                    <div class='six columns' id="c2_length"></div>
+                  </div>
+                  <div class='row'>
+                    <div class='six columns'> S1 Length: </div>
+                    <div class='six columns' id="s1_length"></div>
+                  </div>
+                </div>  
+
+              </div>
+
+            </div>
+            <!-- </div> -->
+
+        <!-- </div> --> <!-- program -->
+
+
+
+
+        <!-- ************************** -->
+        <!-- ************************** -->
+        <!-- ************************** -->
+        <!-- ************************** -->
+
+
+
+      </div>
+
+      <div class='one columns'> &nbsp; </div>
+
+    </div>
+
+  </div>
+
+    
+  <!-- program -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+
+  <script src="js/three.min.js"></script> 
+  <script src="js/OrbitControls.js"></script>
+  <script src="js/two.js"></script>
+  <script src="js/THREEx.FullScreen.js"></script>
+  <script src="js/spectrum.js"></script> 
+
+  <script src="js/symtensWeb.js"></script>
+  <script src="js/symtens-display.js"></script>
+  <script> init() </script>
+
+
+</body>
+</html>
