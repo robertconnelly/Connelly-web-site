@@ -50,7 +50,8 @@ Removes the underline with text decoration = none.*/
 }
 
 .navBar .current-nav {
-  background-color: #008cbe;
+  /* background-color: #008cbe; */
+  background-color: #00b3f0;
 }
 
 /*Set your custom screen width here replacing 700*/
