@@ -1,0 +1,381 @@
+\documentclass[11pt]{article}
+\usepackage{amsfonts, amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm,amscd}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{subfig}
+\usepackage{lineno}
+%\linenumbers
+%\usepackage{babelbib}
+%\usepackage[pdftex]{graphicx}
+%\usepackage[margin=25pt,font=small,labelfont=bf]{caption}
+%\usepackage{epsfig}
+%\usepackage[pdftex]{graphicx}
+%\usepackage[margin=25pt,font=small,labelfont=bf]{caption}
+\usepackage{caption}
+\def\proof{\noindent {\bf Proof. }}
+\def\eop{\hfill {\hfill $\Box$} \medskip}
+%\def\R{{\rm I\! R}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\numberwithin{equation}{section}
+%\newtheorem{problem}{{Problem}}
+\numberwithin{figure}{section}
+%\numberwithin{proposition}{section}
+%\numberwithin{theorem}{Theorem}
+%\numberwithin{corollary}{section}
+
+\newcommand{\RR}{\mathbb R}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\SSS}{\mathbb S}
+\newcommand{\T}{\mathbb T}
+\newcommand{\kk}{\mathbf{k}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Pa}{\mathcal P}
+
+%\newcommand{\address}{Department of Mathematics\\
+%Cornell University\\
+%Ithaca, NY 14853\\
+%\href{mailto:connelly@math.cornell.edu}{connelly@math.cornell.edu}}
+
+
+\newcommand{\vv}[1]{\vec{ #1}}
+\newcommand{\bna}{\begin{eqnarray}}
+\newcommand{\ena}{\end{eqnarray}}
+\newcommand{\ba}{\begin{eqnarray*}}
+\newcommand{\ea}{\end{eqnarray*}}
+\newcommand{\bs}[1]{}
+
+\newtheorem{lemma}{Lemma}%[equation]
+%\newtheorem{proposition}{Proposition}%[equation]
+%\newtheorem{theorem}{Theorem}%[equation]
+%\newtheorem{corollary}{Corollary}%[equation]
+\newtheorem{remark}{Remark}%[equation]
+\newtheorem{assumption}{Assumption}%[equation]
+\newtheorem{definition}{Definition}%[equation]
+%\newtheorem{conjecture}{Conjecture}%[equation]
+
+\DeclareMathOperator{\Dim}{Dim}
+\DeclareMathOperator{\intr}{int}
+\newcommand{\ra}{\rangle}
+\newcommand{\la}{\langle}
+\newcommand{\CC}{{\mathcal C'}}
+\newcommand{\CR}{{\mathcal R}}
+\newcommand{\N}{{\mathcal N}}
+\def\p{{\bf p}}
+\def\b{{\bf b}}
+\def\pn{{\bf p =(p_1, \dots, p_n) }}
+\def\q{{\bf q}}
+\def\qn{{\bf q =(q_1, \dots, q_n) }}
+\def\v{{\bf v}}
+\def\w{{\bf w}}
+\def\e{{\bf e}}
+\def\r{{\bf r}}
+\def\s{{\bf s}}
+\def\u{{\bf u}}
+\def\x{{\bf x}}
+\def\y{{\bf y}}
+
+%\def\int{{\text{int}}}
+
+
+\usepackage[margin=1in]{geometry}
+%\textheight     9in
+
+%\textwidth       6.5in
+
+
+\begin{document}
+\title{A Calculus Problem %\thanks{This work was partially supported by the National Science Foundation Grant DMS-1564493}
+}
+
+%\author{Robert Connelly}
+%\date{}
+\maketitle 
+%{\footnotesize \noindent Department of Mathematics \\
+% \footnotesize Cornell University \\
+% \footnotesize Ithaca, NY 14853\\
+% \footnotesize mailto:  connelly@math.cornell.edu}\\
+ 
+ 
+
+
+%%%%%%%%%%%%%%%%
+%\begin{abstract}  Searching for ``applications" of calculus in a Freshman Engineering course I was led to some interesting geometry. 
+
+%{\bf Keywords: Isoperimetric inequality, Pathagorean triangles, Brahmagupta's formula} 
+
+%\end{abstract}
+%%%%%%%%%%%%%%%%
+\section{Introduction} \label{section:introduction}
+%%%%%%%%%%%%%%%
+
+We are encouraged to find good ``applications'' of the mathematics in engineering calculus, and I thought that I had found one, the isoperimetric inequality for polygons in the plane.  The maximum area for a polygon in the plane with given fixed edge lengths occurs when all the vertices lie on a circle.  Such polygons are called \emph{cyclic polygons}. I certainly didn't want to do a whole treatise on the subject, even if I could stay alive after the presentation.  So I thought it would be fun just to do the case for a quadrilateral.  We did Lagrange multipliers; it is short and simple to use it to convince them that the maximum area configuration is when the points lie on a circle. See the Appendix, Section \ref{section:appendix}.  We \emph{applied} the concept of Lagrange multipliers.   When I mentioned this to my colleagues, they said this was NOT an application.  It was a THEOREM.  Argghh!  %What snobs!  Does it have to have obscure units like nanometers, Smoots, horses, or butt units, or have some obscure purpose like counting atoms on the head of polygonal pin?  
+
+
+I thought that it would be  would be perfect to find the maximum area for some nice numbers, integers for the four lengths, and for the area.  No units needed, just numbers.  I gave the students the numbers $1, 5, 7, 5$, and asked them to find the maximum area enclosed by a quadrilateral with those side lengths.   I said just hand in their answer at the end of the class with their name on a scrap of paper.  No proof, no derivation, was necessary.  If they didn't have an idea to how to do it, I figured they most likely couldn't guess it, or if they did, they would have something going for them that deserved credit anyway.
+
+Before you read on, can you figure out (or guess) the answer?
+
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{My Solution} \label{section:square-sums}
+
+I didn't want to use numbers that were too easy, such as when there are two pairs of equal numbers.  The slowest student would see that a rectangle would work.  I was OK with at most one pair of numbers being equal.  A simple way to find some small numbers that give nice  integral lengths and a nice integral area is to put two right triangles, with integral leg lengths, together so that they have the same  length of the hypotenuse (which does not have to be integral).  So this amounts to finding a number that is the sum of two non-zero squares in two different ways.  The smallest number that I found (for the sum of squares) was $50 =5^2 + 5^2=7^2 +1^2$, which gives the  $1, 5, 5, 7$ quadrilateral, which has area $(5^2 +7\cdot 1)/2=16$.  Figure \ref{fig:right-quad} shows such a quadrilateral.
+
+ \begin{figure}[!htb]
+ %\captionsetup{justification=centering,margin=2cm}
+    \centering
+        \includegraphics[width=0.3\textwidth]{right-quad}% 
+        \captionsetup{labelsep=colon,margin=2cm}
+         \caption{This is my solution to the problem of finding the maximum area of a quadrilateral with side lengths $1,5,5,7$.}\label{fig:right-quad}
+    \end{figure}
+My method to find those numbers was to use Gausian integers $\Z[i] =\{a+bi \mid a, b \in \Z \}$, the unique factorization domain of all integer linear combinations of $1$ and the complex number $i$.  The \emph{norm} of $a+bi$ is $N(a+bi)=a^2 + b^2=(a+bi)\overline{(a+bi)}=(a+bi)(a-bi)$. The idea is to find some real integer $n$, which will turn out to be the square of the length of the diameter of the circle  which is the sum of two squares and write it as $ n= z\overline{z}$. Factor $n$ in $\Z[i]$, and then interchange some of the factors in $z$ and $\overline{z}$ to get another $w \in \Z[i]$ so that $n= w\overline{w}$, making sure $w$ has non-zero real and imaginary parts.  In our case, $50= 2\cdot 5^2= (1+i)(1-i)(2+i)^2(2-i)^2$.  One partition of the factors is $(1+i)(2+i)(2-i)\overline{(1+i)(2+i)(2-i)}=N((1+i)5)=N(5+5i)=50.$  The other partition  is $(1-i)(2+i)^2\overline{(1-i)(2+i)^2}=N(7+i)=50.$  This gives $5^2 +5^2=7^2+1$, so $5,5,7,1$, which is easy to see once you have found it.  One can see how to create more examples this way using more factors in $\Z[i]$.
+
+Another example I found later involved when the square of the diameter of the circle is $n=5\cdot 13$, which is the product of distinct primes in $\Z$ but not in $\Z[i]$.  (A real prime factors in $\Z[i]$ when it  is congruent to $1$ modulo $4$.) So $5\cdot 13=(2+i)(2-i)(3+2i)(3-2i)$, and we factor it the following ways $(2+i)(3+2i)=4+7i$, and $(2-i)(3+2i)=8+i$, where each are multiplied by their conjugates.  This gives $1,4,7,8$ as edge lengths, and an area equal to $(4\cdot7+8\cdot 1)/2=18$, which is the smallest area for unequal sides that I have found.  Indeed, it is interesting that this is the same as Example C7 on page 54 of \cite{Niven-max-min}, but he seems to have used the method described in Section \ref{section:Brahmagupta} here.
+
+
+I gave the students the numbers for the first case in a different order $1, 5, 7, 5$, so the sums of squares property would not be so obvious.  We must give the students a challenge.  The order does not matter, since the triangles from the center of the circle to each edge of the polygon can be interchanged without changing the total area.   Clever me.  But..., several of the students found the answer right away.  What happened? 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Students' Solution} \label{section:students}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+When you look at the quadrilateral in the order $1, 5, 7, 5$, there is a natural symmetry that interchanges the two $5$ length sides as in the Figure \ref{fig:iso-trap}.  This is an isosceles trapezoid.
+
+ \begin{figure}[!htb]
+ %\captionsetup{justification=centering,margin=2cm}
+    \centering
+        \includegraphics[width=0.4\textwidth]{iso-trap}% 
+        \captionsetup{labelsep=colon,margin=2cm}
+         \caption{This is the students' solution to the problem of finding the maximum area of a quadrilateral with side lengths $1,5,5,7$ when the order is $1,5,7,5$.  Namely it is an isosceles trapezoid, which, by finding the intersection of the perpendicular bisectors of the slanted sides, we see that the vertices of the trapezoid lie on a circle. This is another instance of a maximum area configuration for those side lengths.}\label{fig:iso-trap}
+    \end{figure}
+
+Notice the the $3, 4, 5$ right triangles in the slanted corners of the trapezoid.  The height of the trapezoid is $4$.  We knew it had to have the same area, and sure enough it has area $4(7+1)/2=16$.  This solution is interesting because it is very easy to generate examples from Pythagorean triangles.  When there are two lengths in the quadrilateral that are the same, then the isosceles trapezoid will be one of the cases that has the maximum area.  Figure \ref{fig:iso-trap-2} shows another example for the lengths $1,5,5,9$, where its area is $15$, one unit smaller than Figure \ref{fig:iso-trap}. Note that Figure \ref{fig:iso-trap-2} does not have any two pairs of sides such that the sums of the squares are equal as in Figure \ref{fig:right-quad}.
+
+ \begin{figure}[!htb]
+ %\captionsetup{justification=centering,margin=2cm}
+    \centering
+        \includegraphics[width=0.43\textwidth]{iso-trap-2}% 
+        \captionsetup{labelsep=colon,margin=2cm}
+         \caption{This is another solution when two of the edge lengths are equal.  Here the area is $15$, which is less that the area of the previous Figures.}\label{fig:iso-trap-2}
+    \end{figure}
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+    \section{The Final Say: Brahmagupta} \label{section:Brahmagupta}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+   
+    I wondered if there was a formula for the area of a cyclic quadrilateral.  I looked at Wikipedia and saw a formula due to Brahmagupta, an Indian mathematician of the seventh century
+ AD.  But wait, I knew that formula.    Here is the result:
+ \begin{theorem}[Brahmagupta]\label{thm:brahma}Let $a,b,c,d$ be the positive lengths of the sides of a cyclic quadrilateral (without intersection), and let $A$ be its area.  Then
+ \begin{eqnarray}A^2&=&(s-a)(s-b)(s-c)(s-d) \label{eqn:brahma}\\
+ 				&=&(-a+b+c+d)(a-b+c+d)(a+b-c+d)(a+b+c-d)/16,\label{eqn:brahma-1}
+ \end{eqnarray}
+ where $s=(a+b+c+d)/2$ is the length of the semi-perimeter.
+ \end{theorem}
+ 
+% I had written a paper about an extension of the formula some years ago, \cite{Connelly-Brahma}.
+There were papers about the extension of the formula   \cite{Connelly-Brahma, Robbins-Monthly, Robbins-DCG}
+ 
+This is a particularly nice way to think of the data for a quadrilateral.  For example, if you have four positive numbers $a,b,c,d$, they can be used to form a cyclic polygon with no self intersections, if and only if each of the factors in (\ref{eqn:brahma}), or equivantly in (\ref{eqn:brahma-1}), are strictly less than $s$ the semi-perimeter.  So in order to create more examples for our unsuspecting students, using formula (\ref{eqn:brahma}) we can find all the examples where there are integral edge lengths and an integral area.  
+
+Let 
+\[u_a=s-a, \, \, u_b=s-b, \, \,  u_c=s-c, \, \,  u_d=s-d,\]
+ so $u_au_bu_cu_d=A^2$, and  
+ 
+ \begin{equation}a=s-u_a, \, \,  b=s-u_b, \, \, c=s-u_c, \, \, d=s-u_d.\label{eqn:edge-def}  \end{equation}
+ 
+ Then 
+$u_a + u_b + u_c + u_d = 4s -2s=2s.$
+ Notice that the terms in (\ref{eqn:brahma}), the $u$'s and $s$ are all whole positive integers if all the edge lengths are odd, or all even, or exactly two edge lengths are odd.  Otherwise $A$ is not an integer.  Similarly, if $A$ is an interger, we can assume that all the terms of $u_a, u_b, u_c, u_d$ and $s$ are all whole intergers and they are all odd, or all even, or exactly two are odd.  With these parity assumptions, we can choose $u_a, u_b, u_c, u_d$ as positive integers less than $s$, such that $u_au_bu_cu_d$ is a square and use (\ref{eqn:edge-def}) 
+ to define the edge lengths and have the cyclic quadrilaterals exist with an integral area. 
+ 
+ For example, for $(u_a, u_b, u_c, u_d) =(2, 4, 4, 8)$, then $s=9$, and $A=\sqrt{2\cdot4 \cdot4\cdot8}=16$ implying $(a,b,c,d)= (7, 5, 5, 1)$ as in the example of Section \ref{section:square-sums}.  
+ 
+ For $A=3\cdot5=15$, we can choose $(u_a, u_b, u_c, u_d) =(1, 5, 5, 9)$, then $s=10$, implying $(a,b,c,d)= (9, 5, 5, 1)$, giving the example in Figure \ref{fig:iso-trap-2}. Interestingly, the $u$'s and the edge lengths are the same.
+ 
+ For $A=2\cdot3^2=18$, let $(u_a, u_b, u_c, u_d) =(2, 3, 6, 9)$,  so that $s=10$, and $(a,b,c,d)= (8, 7, 4, 1)$,  which is the second example of Section \ref{section:square-sums} and apparently the way the example was found in \cite{Niven-max-min}.
+ 
+ For $A=2\cdot3\cdot5=30$, we can choose $(u_a, u_b, u_c, u_d) =(2, 5, 9,10)$, then $s= 13$, and $(a,b,c,d)= (11, 8, 4, 3)$.  Notice that this example is also different from the first case of Section \ref{section:square-sums}, where the sum of the squares of one pair of edge lengths equals the sum of the squares of the other pair of edge lengths. 
+
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+\subsection{Brahmagupta extended}\label{section:brahma-extended}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+
+What happens when we allow the quadrilateral to have a self intersection?  David Robbins in \cite{Robbins-Monthly, Robbins-DCG} had a nice idea,  just change the sign in one of the edge lengths in the formula (\ref{eqn:brahma}).  So we get the following:
+
+ \begin{theorem}[Brahmagupta self-intersecting]\label{thm:brahma-2}Let $a,b,c,d$ be the positive lengths of the sides of a cyclic quadrilateral with intersection, and let $A$ be its (oriented) area.  Then
+ 
+ \begin{eqnarray}A^2&=&s(s-a-b)(s-a-c)(s-a-d)				\label{eqn:brahma-2.1}\\
+ 				&=&(a+b+c+d)(-a-b+c+d)(-a+b-c+d)(-a+b+c-d)/16,\label{eqn:brahma-2.2}
+ \end{eqnarray}
+ where $s=(a+b+c+d)/2$ is the length of the semi-perimeter.
+ \end{theorem}
+ 
+ Label the edge lengths as $a \le b \le c \le d$.  Then we see that the all the terms of (\ref{eqn:brahma-2.1}) and equivalently (\ref{eqn:brahma-2.2}) are non-negative, except possibly the last term $-a+b+c-d$ and $s-a-d$ in each case.  If that last term is $0$, then there is a configuration that exists on the line (as with the case when $(a,b,c,d)=(1,5,5,9)$).  
+ 
+If that term is negative, i.e. $b+c < a+d$,  then there is no self-intersecting cyclic example for those lengths.  In that case, the set of configurations with those edge lengths in a fixed order, modulo rotations and translations is connected.  So any such configuration, by continuously rotating the edges fixing their lengths (i.e. flexing the quadrilateral) one can move it from any realizable configuration to its mirror image.  The maximum area and minimum area are negatives of each other.  Here no two edges do a $360^{\circ}$ rotation about each other.
+ 
+ If that term is positive, i.e. $b+c >a+d$, then there is a self-intersecting cyclic example for those lengths, and that configuration represents an extreme configuration for one of two connected components.  If the orientation of the edges is such that the area is positive for the non-intersecting case, then the self-intersecting case in that component will also  positive area, and thus all the configurations in that component will be positive.  For example, when $(a,b,c,d)=(1,5,5,7)$, we found that the maximum area is $16$ in Section \ref{section:square-sums}, and by formula (\ref{eqn:brahma-2.1}), the minimum area, for that component, is $\sqrt{9\cdot 3 \cdot 3 \cdot 1}=9$.  Alternatively in the $(1, 5, 5, 7)$ case, we find, by flipping the right triangle with side lengths, $1, 7$ in Figure \ref{fig:right-quad}, that the area is $(25-7)/2=9$ again.  See Figure \ref{fig:right-quad-2}.  
+  \begin{figure}[!htb]
+ %\captionsetup{justification=centering,margin=2cm}
+    \centering
+        \includegraphics[width=0.25\textwidth]{right-quad-2}% 
+        \captionsetup{labelsep=colon,margin=2cm}
+         \caption{This is a solution to the problem of finding the local minimum oriented area of a quadrilateral with side lengths $1,5,5,7$.  Where the colored regions intersect, the area is subtracted. }
+         \label{fig:right-quad-2}
+    \end{figure}
+    
+    When $b+c >a+d$, the smallest edge length rotates a full $360^{\circ}$ rotation relative to each of the other edges, and there is another component with all negative areas that is the exact mirror image of the component with positive areas.
+    
+    In the $b+c =a+d$ case, the configuration can lie flat in a line, but it is a non-extreme critical case, and interestingly that is the only time during its motion that it has a self-intersection.  The triangle inequality can be used to show that it is embedded when it does not lie in a line.  See \cite{monthly} for an argument to show that property.
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+    \section{Larger polygons} \label{section:Ulam}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+ 
+ If a cyclic polygon has more than $4$ sides, the area satisfies a polynomial equation in its edge lengths, but it is far more complicated than the case for $4$ sides. See, for example, a discussion of this problem in \cite{Num-theory, Robbins-Monthly, Robbins-DCG}, where the the constraints on the edge lengths of a cyclic polygon and the area bounded by that cyclic polygon are determined. But nevertheless, there are ways to construct infinitely many examples where it is possible to calculate the area and even the coordinates of the vertices on the circle.  The following Theorem is in \cite{Klee-book}, Theorem $10.2$, using trig. identities.  We present a quick proof here.  %Let $\SSS^1=\{z\in \C \mid z\overline{z}=1\}$ be the unit circle in the complex plane $\C$.  
+ In $\C$ the complex plane, define the following:
+ 
+ \begin{eqnarray*}
+S_1 &=& \{ z \in \C\mid z=w/|w|, w \in \Z[i],w\ne 0\}\\
+ S_2 &=& \{ z \in S_1\mid z=w^2  \}\\
+S_3 &=& \{ z \in S_2\mid z=w^2\}.
+\end{eqnarray*}
+
+It is easy to see that $S_2$ and $S_3$ are multiplicative groups with rational coordinates in $\SSS^1$.
+
+\begin{theorem} Every pair of points in $S_3$ have a rational distance between them.
+\end{theorem}
+
+\begin{proof}Let $z_1^2, z_2^2 \in S_3$ be two points where $z_1,z_2 \in S_2$.  Then, where $Im(z)$ is the imaginary part of $z$,
+\[|z_1^2- z_2^2|=|(z_1/z_2 - z_2/z_1)z_1z_2|=|z_1/z_2-\overline{(z_1/z_2)}|=|2 Im(z_1/z_2)i|,
+\]
+which is clearly rational. \qed  
+\end{proof}
+
+If one wants integer lengths of the edges of say a cyclic polygon whose circle has integer radius and integer area, one can clear fractions at the expense of creating very large integers.  The area is also rational since the coordinates of the polygon are rational and each triangle with rational coordinates has a rational area.  (Twice the area of a triangle is plus or minus the determinant of the vectors determined by two adjacent sides.)
+
+A small example of this process is obtained starting with $2+i$, with magnitude $\sqrt{5}$ and taking its fourth power to get $-7 + 24i$ with magnitude $25$.  After taking conjugates, the inverse operation in the group $S_3$, and multiplying by $-1=i^2 \in S_3$, we get six points on a circle of radius $25$, $1, 7+24i, -7+24i, -1, -7-24i, 7-24i$.  Each of the pairwise distances in this set is an integer, as shown in Figure \ref{fig:int-hex}.
+
+ \begin{figure}[!htb]
+    \centering
+        \includegraphics[width=0.25\textwidth]{int-hex}% 
+        \captionsetup{labelsep=colon,margin=2cm}
+         \caption{This shows $6$ points on a circle of radius $25$, where all the pairwise distances are integral and any polygon formed using those  points is also integral.  The areas of two colored triangles are shown in red. }\label{fig:int-hex}
+    \end{figure}
+    
+ 
+    
+     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+    \section{Appendix} \label{section:appendix}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+
+There are many proofs of the isoperimetric inequality in the plane, which says that any simple closed curve with a fixed length in the plane, bounds the most area when it is circle.  For example, see  \cite{Niven-max-min}.  The result in Section \ref{section:introduction} about quadrilaterals can be used to provide yet another proof of the isoperimetric problem in the plane.  The following is the quadrilateral statement and proof.
+
+\begin{theorem}\label{thm:iso-quad}  Among all quadrilaterals with fixed edge lengths in the plane, the configuration with the maximum area is when the vertices lie on a circle.
+\end{theorem}  
+
+\begin{proof} By pinning a point of the quadrilateral, it is clear that the space of  quadrilaterals with fixed edge lengths is compact  as mentioned earlier.  It is helpful to extend the definition of the area of a quadrilateral to the case which allows self intersection and which orients the edges cyclicly.   This allows a more general definition of area, an oriented area that can be negative as well as positive as mentioned earlier.  Let $\alpha$ and $\beta$ be opposite interior angles in the quadrilateral with side lengths $a, b, c, d$, where $\alpha$ is between $a$ and $b$, $\beta$ between $b$ and $c$.  Then the square of the diagonal opposite $\alpha$ and $\beta$ is given by the law of cosines 
+\[a^2 +b^2 -2ab\cos \alpha= c^2+d^2 -2cd \cos \beta.\]
+This is the constraint on $\alpha$ and $\beta$. The (oriented) area $A$ of the quadrilateral to be maximized is given by the law of sines
+
+\[2A=2ab \sin\alpha +  2cd \sin \beta. \]
+When one of the angles $\alpha$ or $\beta$ becomes reentrant as in Figure \ref{fig:supplementary} on the right, a sine term in the area formula becomes negative, so that the triangle formed by that reentrant angle counts as negative area.  Using gradients, we see that the vectors 
+
+\[( ab\sin \alpha, -cd \sin\beta), (ab \cos \alpha, cd \cos \beta)\]
+must be collinear, which implies that $\sin \alpha \cos \beta +\cos \alpha \sin \beta = \sin (\alpha +\beta) = 0$, which in turn implies that the four vertices of the quadrilateral are on a circle, as in Figure \ref{fig:supplementary}. 
+When the vertices are on opposite sides of their common diagonal, as on the left, the quadrilateral is embedded with a maximum area.   By flipping along that common diagonal, we see that the self-intersecting case is not a maximum area, but a local minimum area as in Section \ref{section:brahma-extended}.  Note also that another critical case is when all the vertices lie on a straight line, which is not a maximum or minimum, unless  the largest side length is $s$ the semi-perimeter, and the configuration is degenerate and rigid. \qed  
+\end{proof}
+
+ \begin{figure}[!htb]
+    \centering
+        \includegraphics[width=0.4\textwidth]{supplementary}% 
+        \captionsetup{labelsep=colon,margin=2cm}
+         \caption{The example on the left shows a typical quadrilateral where $\alpha + \beta=\pi$.  In other words $\alpha$ and $\beta$ are supplementary angles, and thus all $4$ points lie on a circle. The self-intersecting case on the right is when $\alpha =\pi -\beta$}\label{fig:supplementary}
+    \end{figure}
+    
+It is interesting to observe that when opposite sides of a self-intersecting reentrant quadrilateral are equal, then the nearby configurations are such that the enclosed area is constant at $0$, and they all lie on a circle or a straight line.  Nevertheless the maximum and minimum area occurs when the quadrilateral is a rectangle.
+
+This idea of including the reentrant cases of polygons in the plane and calculating the index of the area function comes from several conversations I have had with Tom Banchoff over the years.  
+
+Using Theorem \ref{thm:iso-quad} it is easy to show that for any closed polygonal curve in the plane, it encloses the maximum area when all the vertices lie on a circle.  By varying the middle two of each consecutive $4$ vertices and maximizing the area of those $4$ vertices and thus having them lie on a circle, all the vertices must then lie on a circle.  Then using polygonal curves to approximate any continuous closed curve, one gets the usual isoperimetric inequality in the plane for any continuous curve.  In \cite{Connelly-Brahma} it is shown how to compute the index.
+
+On the other hand, one can use the isoperimetric inequality for continuous curves to obtain the Theorem for polygons in the plane.  Simply attach a rigid circular segment to each edge of the appropriate size such that when the polygon has its vertices on a circle, the circular segments form a perfect circle, with just a fixed difference in the area bounded by the circular arcs and the area bounded by the polygon.  See Figure \ref{fig:Polya}.  With this in mind, there are more proofs of the isoperimetric inequality for continuous curves in the plane.  In particular, there is very interesting symmetrization argument do to Jacob Steiner, that says that any maximum area curve, must have symmetry about some line among any set of parallel lines, and thus be a circle.  For example, see \cite{Niven-max-min}. One point is that in the plane, it is possible to argue that the maximum area exists using a compactness argument, whereas in higher dimensions, it is more difficult.
+ 
+ \begin{figure}[!htb]
+    \centering
+        \includegraphics[width=0.45\textwidth]{Poly-iso}% 
+        \captionsetup{labelsep=colon,margin=2cm}
+         \caption{This shows how to use the  isoperimetric inequality theorem for closed continuous curves to show Theorem \ref{thm:iso-quad}.  The green circular segments are rigidly attached to the line segments of the polygon.  The area of the polygon is a fixed difference from the area bounded by the piecewise circular arcs.}\label{fig:Polya}
+    \end{figure}
+    
+
+
+
+%Another example, where all its edge lengths are different integers, using the sums of squares method of Section \ref{section:square-sums} was when the edge lengths were  $3, 7, 9, 11$ and $3^2+11^2=9+121=130=49+81=7^2+9^2$, and the area was $A=48$.  This can be found by factoring $2\cdot5\cdot13$ two ways.  This works since all  of $2, 5, 13$ factor over $\Z[i]$.  So $130^2=(1+i)^2(1-i)^2(2+i)^2(2-i)^2(3+2i)^2(3-2i)^2$, which splits into 
+%%%%%%%%%%%%%%%%
+%\bibliographystyle{plain}
+%\bibliography{framework}
+%%%%%%%%%%%%%%%%
+\bibliographystyle{plain}
+%\bibliography{framework}
+%\end{thebibliography}
+\begin{thebibliography}{1}
+
+\bibitem{Num-theory}
+Ralph~H. Buchholz and James~A. MacDougall.
+\newblock Cyclic polygons with rational sides and area.
+\newblock {\em J. Number Theory}, 128(1):17--48, 2008.
+
+\bibitem{Connelly-Brahma}
+Robert Connelly.
+\newblock Comments on generalized {H}eron polynomials and {R}obbins'
+  conjectures.
+\newblock {\em Discrete Math.}, 309(12):4192--4196, 2009.
+
+\bibitem{monthly}
+Robert Connelly, John~H. Hubbard, Ilias Kastanas, and MMRS.
+\newblock Problems and {S}olutions: {S}olutions: 10308.
+\newblock {\em Amer. Math. Monthly}, 103(5):430--431, 1996.
+
+\bibitem{Klee-book}
+Victor Klee and Stan Wagon.
+\newblock {\em Old and new unsolved problems in plane geometry and number
+  theory}, volume~11 of {\em The Dolciani Mathematical Expositions}.
+\newblock Mathematical Association of America, Washington, DC, 1991.
+
+\bibitem{Niven-max-min}
+Ivan Niven.
+\newblock {\em Maxima and minima without calculus}, volume~6 of {\em The
+  Dolciani Mathematical Expositions}.
+\newblock Mathematical Association of America, Washington, D.C., 1981.
+
+\bibitem{Robbins-DCG}
+D.~P. Robbins.
+\newblock Areas of polygons inscribed in a circle.
+\newblock {\em Discrete Comput. Geom.}, 12(2):223--236, 1994.
+
+\bibitem{Robbins-Monthly}
+David~P. Robbins.
+\newblock Areas of polygons inscribed in a circle.
+\newblock {\em Amer. Math. Monthly}, 102(6):523--530, 1995.
+
+\end{thebibliography}
+
+
+\end{document}

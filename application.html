@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/spectrum.css">
   <link rel="stylesheet" href="css/rc.css">
+  <link rel="stylesheet" href="css/navbar.css">
 
   <link rel="icon" type="image/png" href="images/favicon.ico">
 
@@ -35,6 +36,17 @@
           margin-top: 9px;
       }
   </style>
+
+  <script>
+		function openDrawerMenu(){
+			var x = document.getElementById("mainNavBar");
+			if (x.className === "navBar"){
+				x.className += " responsive";
+			} else {
+				x.className = "navBar";
+			}
+		}
+  </script>
 
 
 </head>
@@ -141,7 +153,19 @@
 
     <h1>Robert Connelly</h1>
 
+      <!-- <div class='one columns navcol'>  &nbsp; </div> -->
+    <div class='navBar' id='mainNavBar'>
+       <a href='index.html' >Home</a>
+       <a href='publications.html' >Publications</a>
+       <a href='application.html' class='current-nav' >Applications</a>
+       <a href='teaching.html' >Teaching</a>
+       <a href='activities.html' >Activities</a>
+       <a href='students.html' >Grad Students</a>
+       <a href="javascript:void(0);" class="icon" onclick="openDrawerMenu()">&#9776;</a>
+    </div>
 
+
+    <!--
     <div class='row navrow'>
       <div class='two columns navcol '> <span><a href='index.html' class='navlink'>Home</a></span> </div>
       <div class='two columns navcol'> <span><a href='publications.html' class='navlink'>Publications</a></span> </div>
@@ -150,6 +174,7 @@
       <div class='two columns navcol'> <span><a href='activities.html' class='navlink'>Activities</a></span> </div>
       <div class='two columns navcol'> <span><a href='students.html' class='navlink'>Grad Students</a> </span> </div>
     </div>
+    -->
 
     <hr>
 
